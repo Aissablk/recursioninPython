@@ -6,9 +6,14 @@ def python_files(path_target):
         for f in os.listdir(path_target):
             if f.endswith(".py"):
                 python_files_list.append(f)
-
+                
         if python_files_list:
             print("Python files in the directory:", *python_files_list, sep="\n")
+            for file in python_files_list: 
+                with open(file, 'r') as file:
+                    content = file.read()
+                    print("Contents of the file:")
+                    print(content)
         else:
             print("No .py files in the directory.")
     else:
@@ -24,4 +29,3 @@ if __name__ == "__main__":
 
 
 
-os.walk()
